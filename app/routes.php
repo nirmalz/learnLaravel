@@ -15,3 +15,15 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/user', function(){
+	$user = new User;
+	$user->username 				= 'nirmal';
+	$user->email 					= 'someone@gmail.com';
+	$user->password 				= 'general';
+	$user->password_confirmation 	= 'general';
+	var_dump($user->save());
+
+	
+
+});
