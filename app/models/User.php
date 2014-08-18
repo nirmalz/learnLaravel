@@ -35,10 +35,10 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 		'required'		=> 'The :attribute is required.'	
 		);
 
-	//relationship definitions
-	public static $relationsData = array(
 
-		);
+	public function posts(){
+		return $this->hasMany('Post');
+	}
 
 
 
