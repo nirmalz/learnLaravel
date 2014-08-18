@@ -18,12 +18,20 @@ Route::get('/', function()
 
 Route::get('/user', function(){
 	$user = new User;
-	$user->username 				= 'nirmal';
-	$user->email 					= 'someone@gmail.com';
+	$user->username 				= 'Harry';
+	$user->email 					= 'harry@gmail.com';
 	$user->password 				= 'general';
 	$user->password_confirmation 	= 'general';
-	var_dump($user->save());
 
-	
+
+	if($user->save()){
+		echo "User successfully inserted into users table";
+	}else{
+		echo "Make sure you did everything right !!";
+
+		foreach ($user->errors()->all() as $error) {
+			echo "<div>$error</div>"; 
+		}
+	}
 
 });
