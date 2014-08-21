@@ -11,6 +11,8 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
+	// =========================== ATTRIBUTES ===========================
+		
 	protected $table = 'users';
 	protected $hidden = array('password', 'remember_token');
 
@@ -36,10 +38,23 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 		);
 
 
+	// ============================= METHODS ========================
+
+	//raltion of user with post
 	public function posts(){
 		return $this->hasMany('Post');
 	}
 
+	//user following realtionship
+	public function follow(){
+		return $this->belongsToMany('User', 'user_follows', 'user_id', 'follow_id');
+	}
+
+
+	//user followers relationship
+	public function followers(){
+		return $this->belongsToMany('User', 'user_follows', 'follower_id', 'user_id');
+	}
 
 
 }

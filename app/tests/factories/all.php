@@ -8,8 +8,8 @@ FactoryMuffin::define('Post', array(
 ));
  
 FactoryMuffin::define('User', array(
-    'username' 	=> 'firstName',
-    'email' 	=> 'me@gmail.com',
+    'username' 	=> 'unique:firstName',
+    'email' 	=> 'unique:email',
     'password'	=> 'general',
     'password_confirmation' => 'general'
 ));
