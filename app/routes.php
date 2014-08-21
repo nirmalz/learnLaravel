@@ -18,8 +18,8 @@ Route::get('/', function()
 
 Route::get('/user', function(){
 	$user = new User;
-	$user->username 				= '';
-	$user->email 					= 'harry@gmail.com';
+	$user->username 				= 'nirmal';
+	$user->email 					= 'nirmal@gmail.com';
 	$user->password 				= 'general';
 	$user->password_confirmation 	= 'general';
 
@@ -55,4 +55,66 @@ Route::get('/post', function(){
 		}
 	}
 
+});
+
+// test to see how following and a follower relationship works in this application 
+Route::get('/following', function()
+{
+  // Create User 1
+  $user1 = new User();
+  $user1->username = "someone";
+  $user1->email = "someone@gmail.com";
+  $user1->password = "general";
+  $user1->password_confirmation = "general";
+  $user1->save();
+ 
+  // Create User 2
+  $user2 = new User();
+  $user2->username = "jack";
+  $user2->email = "jack@twitter.com";
+  $user2->password = "general";
+  $user2->password_confirmation = "general";
+  $user2->save();
+ 
+  // Make User 1 follow User 2
+  $user1->follow()->save($user2);
+ 
+  // Create User 3
+  $user3 = new User();
+  $user3->username = "ev";
+  $user3->email = "ev@twitter.com";
+  $user3->password = "general";
+  $user3->password_confirmation = "general";
+  $user3->save();
+ 
+  // Make User 1 follow User 3
+  $user1->follow()->save($user3);
+ 
+
+ 
+});
+
+Route::get('/followers', function(){
+
+    // Find User 1
+    $someone = User::find(8);
+
+    // Display who User 1 is following
+    echo "$someone->username is following: <br/>";
+
+    foreach ($someone->follow as $user)
+    {
+      echo $user->username . "<br>";
+    }
+     
+    // Find User 2
+    $jack = User::find(9);
+     
+    echo " $jack->username followed by: <br/>";
+    // Display who is following User 2
+
+    foreach ($jack->followers as $user)
+    {
+      echo $user->username . "<br>";
+    }
 });
