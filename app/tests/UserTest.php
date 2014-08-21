@@ -105,6 +105,21 @@ class UserTest extends TestCase {
 
     }
 
+    //test adding new commment
+    public function testAddingNewComment(){
+        //create a new post
+        $post = Factory::create('Post');
+
+        //create a new comment
+        $comment = new comment(array('body' => 'A new comment'));
+
+        //save the comment to the post
+        $post->comments()->save($comment);
+
+        //This post should have one comment
+        $this->assertCount(1, $post->comments);
+    }
+
     public static function tearDownAfterClass()
     {
         Factory::setDeleteMethod('delete'); // optional step
