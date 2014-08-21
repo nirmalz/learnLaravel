@@ -38,7 +38,32 @@ class UserTest extends TestCase {
 
         //first tests
         $this->assertCount(1, $nirmal->follow);
-        $this->assertCount(0, $nirmal->follower);
+        $this->assertCount(0, $nirmal->followers);
+
+        //second set
+        $jack->follow()->save($harry);
+        $jack->follow()->save($gordon);
+
+        //second tests
+        $this->assertCount(2, $jack->follow);
+        $this->assertCount(1, $jack->followers);
+
+        // Thirdet
+        $harry->follow()->save($jack);
+        $harry->follow()->save($nirmal);
+        $harry->follow()->save($gordon);
+        
+        // Third tests
+        $this->assertCount(3, $harry->follow);
+        $this->assertCount(1, $harry->followers);  
+
+        // Fourth set
+        $gordon->follow()->save($jack);
+        $gordon->follow()->save($harry);
+     
+        // Fourth tests
+        $this->assertCount(2, $gordon->follow);
+        $this->assertCount(2, $gordon->followers);    
 
     }
 
