@@ -2,6 +2,10 @@
 
 class Clique extends \Eloquent {
 
+	public static $factory = array(
+		'name'		=> 'string'
+		);
+
 	//user relationship
 	public function users(){
 		return $this->belongsToMany('User');
