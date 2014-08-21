@@ -1,19 +1,19 @@
 <?php
-use League\FactoryMuffin\Facade as FactoryMuffin;
+use League\FactoryMuffin\Facade as Factory;
  
-FactoryMuffin::define('Post', array(
+Factory::define('Post', array(
     'user_id' 	=> 'factory|User',
     'clique_id'	=> 'factory|Clique',
     'body'		=> 'This is a test post'
 ));
  
-FactoryMuffin::define('User', array(
+Factory::define('User', array(
     'username' 	=> 'unique:firstName',
     'email' 	=> 'unique:email',
     'password'	=> 'general',
     'password_confirmation' => 'general'
 ));
  
-FactoryMuffin::define('Clique', array(
+Factory::define('Clique', array(
 	'name'		=> 'computer'
 ));
