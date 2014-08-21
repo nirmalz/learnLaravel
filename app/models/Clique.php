@@ -9,7 +9,7 @@ class Clique extends Ardent {
 
 	//ardent validation rules
 	public static $rules = array(
-		'name' 	=> "required"
+		'name' 	=> "required|unique:cliques"
 		);
 
 	// ===================== METHODS ===================

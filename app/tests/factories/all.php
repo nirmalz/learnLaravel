@@ -15,5 +15,5 @@ Factory::define('User', array(
 ));
  
 Factory::define('Clique', array(
-	'name'		=> 'computer'
+	'name'		=> 'unique:firstName'
 ));

@@ -67,6 +67,8 @@ class UserTest extends TestCase {
 
     }
 
+
+    //name reequired to create Clique
     public function testNameIsRequired(){
         //create a new clique
         $clique = new Clique;
@@ -83,6 +85,25 @@ class UserTest extends TestCase {
         //The error should be set 
         $this->assertEquals($errors[0], 'The name field is required.');
     } 
+
+    //saving users to the clique
+    public function testCliqueUserRelationship(){
+            
+        //create clique    
+        $clique = Factory::create('Clique');
+
+        //creating two users
+        $user1 = Factory::create('User');
+        $user2 = Factory::create('User');
+
+        //save users to the clique
+        $clique->users()->save($user1);
+        $clique->users()->save($user2);
+
+        //count number of users joined
+        $this->assertCount(2, $clique->users);
+
+    }
 
     public static function tearDownAfterClass()
     {
