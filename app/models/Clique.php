@@ -1,10 +1,18 @@
 <?php
+use LaravelBook\Ardent\Ardent;
 
-class Clique extends \Eloquent {
+class Clique extends Ardent {
 
-	public static $factory = array(
-		'name'		=> 'string'
+	// ===================== ATTRIBUTES =================
+
+	protected $fillable = array('name');
+
+	//ardent validation rules
+	public static $rules = array(
+		'name' 	=> "required"
 		);
+
+	// ===================== METHODS ===================
 
 	//user relationship
 	public function users(){
