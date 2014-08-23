@@ -125,7 +125,8 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
 
-		'Nextgen\First\FirstServiceProvider'
+		'Nextgen\First\FirstServiceProvider',
+		'LearnLaravel\Storage\StorageServiceProvider'
 
 	),
 

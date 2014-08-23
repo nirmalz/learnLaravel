@@ -3,7 +3,7 @@ return array(
   'default' => 'mysql',
   'connections' => array(
     'sqlite' => array(
-      'driver'   => 'mysql',
+      'driver'   => 'sqlite',
       'database' => ':memory:',
       'prefix'   => ''
     ),
