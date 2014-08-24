@@ -29,7 +29,7 @@ class UserControllerTest extends TestCase{
 		
 		$this->mock->shouldReceive('all')->once();
 
-		$this->call('GET', 'user'); //get: Method , user: url
+		$this->call('GET', 'users'); //get: Method , user: url
 
 		$this->assertResponseOk();
 	}

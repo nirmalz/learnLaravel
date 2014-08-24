@@ -61,5 +61,5 @@ Route::get('/test', function(){
 	echo First::greeting();
 });
 
-Route::resource('user', 'UserController');
+Route::resource('users', 'UserController');
 

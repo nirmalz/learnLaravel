@@ -29,9 +29,23 @@ class UserController extends \BaseController {
 	}
 
 
+	//stores newly created users in database
 	public function store()
 	{
-		//
+		
+		$v = new LearnLaravel\Services\Validators\User;
+
+		if($v->passes()){
+			$this->user->create($input);
+
+			return Redirect::route('users.index')
+				->with('flash', 'The new user has been created');
+		}
+
+		return Redirect::route('users.create')
+			->withInput()
+			->withErrors($v->getErrors());
+
 	}
 
 
