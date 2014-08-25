@@ -8,3 +8,6 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
+/*.tags
+/ctags.exe
+/.tags_sorted_by_file

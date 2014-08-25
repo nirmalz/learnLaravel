@@ -16,4 +16,8 @@ class EloquentUserRepository implements UserRepository{
 		return User::create($input);
 	}
 
+	public function save(){
+		return User::save();
+	}
+
 }

@@ -8,4 +8,6 @@ interface UserRepository{
 
 	public function create($input);
 
+	public function save();
+
 }
