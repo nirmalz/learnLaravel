@@ -31,7 +31,7 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 		'password'				=> 'required|alpha_num|between:4,15|confirmed',
 		'password_confirmation' => 'required|alpha_num|between:4,15'
 		);
-
+	
 	//custom validation message
 	public static $customMessages = array(
 		'required'		=> 'The :attribute is required.'	
