@@ -1,4 +1,5 @@
 <?php
+
 use League\FactoryMuffin\Facade as Factory;
 
 class UserTest extends TestCase {

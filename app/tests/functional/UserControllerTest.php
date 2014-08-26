@@ -1,5 +1,4 @@
 <?php
-
 use LearnLaravel\Storage\User\UserRepository as User;
 
 class UserControllerTest extends TestCase{
@@ -31,41 +30,6 @@ class UserControllerTest extends TestCase{
 		$this->assertResponseOk();
 	}
 
-	//To test whethere create() is rendering its view page or not
-	public function testCreate(){
-		$this->call('GET', 'users/create');
-		$this->assertResponseOk();	//Asserting that the response is 200
-	}
-
-/*	//To test for store() method for failing to store
-	public function testStoreFails(){
-		
-		$this->mock->shouldReceive('create')
-					->once()
-					->andReturn(Mockery::mock(array(
-						'save' 		=> false,				//mocking that save failed
-						'errors'	=> array()		
-						)));
-
-		$this->call('POST', 'users');
-		
-		$this->assertRedirectedToRoute('users.create');		//assertion that after failing to create, it is routed to users/create	
-  		$this->assertSessionHasErrors();					//assertion that it has also errors in session
-	}
-
-	public function testStoreSuccess()
-	{
-	    $this->mock->shouldReceive('create')
-	               ->once()
-	               ->andReturn(Mockery::mock(array(
-	                   'save' => true
-	                 )));
-	   
-	    $this->call('POST', 'users');
-	    $this->assertRedirectedToRoute('users.index');
-	    $this->assertSessionHas('flash');
-	}*/
-
 	public function testShow(){
 
 		$this->mock->shouldReceive('find')
@@ -79,7 +43,7 @@ class UserControllerTest extends TestCase{
 	}
 
 	public function testEdit(){
-		$this->call('GET', 'users/1/edit');
+		$this->call('GET', 'users/42/edit');
 		$this->assertResponseOk();
 	}	
 

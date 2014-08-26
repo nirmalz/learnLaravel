@@ -126,7 +126,7 @@ return array(
 		'Barryvdh\Debugbar\ServiceProvider',
 
 		'Nextgen\First\FirstServiceProvider',
-		'LearnLaravel\Storage\StorageServiceProvider'
+		'LearnLaravel\Storage\StorageServiceProvider',
 
 	),
 

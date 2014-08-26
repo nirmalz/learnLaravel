@@ -1,13 +1,11 @@
 <?php namespace LearnLaravel\Storage\User;
 
-interface UserRepository{
+interface UserRepository {
+ 
+    public function all();
+ 
+    public function find($id);
 
-	public function all();
-
-	public function find($id);
-
-	public function create($input);
-
-	public function save();
-
+    public function create($input);
+ 
 }

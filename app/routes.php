@@ -16,26 +16,6 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/userSample', function(){
-	$user = new User;
-	$user->username 				= '';
-	$user->email 					= 'harry@gmail.com';
-	$user->password 				= 'general';
-	$user->password_confirmation 	= 'general';
-
-
-	if($user->save()){
-		echo "User successfully inserted into users table";
-	}else{
-		echo "Make sure you did everything right !!";
-
-		foreach ($user->errors()->all() as $error) {
-			echo "<div>$error</div>"; 
-		}
-	}
-
-});
-
 Route::get('/postSample', function(){
 	
 	//create a new Post
@@ -62,4 +42,60 @@ Route::get('/test', function(){
 });
 
 Route::resource('users', 'UserController');
+
+// Get request to register member [display form]
+Route::get('register', array(
+	'uses'	=> 'RegisterController@index',
+	'as'	=> 'register.index'
+	));
+
+// Post request to store new member
+Route::post('register', array(
+	'uses'	=> 'RegisterController@store',
+	'as'	=> 'register.store'	
+	));
+
+
+
+
+Route::get('/userSample', function(){
+
+	$user = new User;
+	
+	$user->username 				= 'second';
+	$user->email 					= 'second@gmail.com';
+	$user->password 				= 'computer';
+	$user->password_confirmation 	= 'computer';
+
+
+	if($user->save()){
+		echo "User successfully inserted into users table";
+	}else{
+		echo "Make sure you did everything right !!";
+
+		foreach ($user->errors()->all() as $error) {
+			echo "<div>$error</div>"; 
+		}
+	}
+
+});
+
+/*==== Authentication routes======*/
+
+Route::get('login', array(
+	'uses'	=> 'SessionController@create',
+	'as'	=> 'session.create'
+	));
+
+Route::post('login', array(
+	'uses'	=> 'SessionController@store',
+	'as'	=> 'session.store'
+	));
+
+Route::get('logout', array(
+	'uses'	=> 'SessionController@destroy',
+	'as'	=> 'session.destroy'
+	));
+
+/*=========================================*/
 

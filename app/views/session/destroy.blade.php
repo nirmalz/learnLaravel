@@ -2,11 +2,7 @@
 
 @section('content')
 
-	<h1>Register User</h1>
-
-	{{ Form::open(array('url' => 'users')) }}
-
-	{{ Form::close() }}
+	<h1>You have SUccessfully logged out</h1>
 
 @stop
 
@@ -17,4 +13,4 @@
 
 	<a href="#">Section Specific lInks</a>
 
-@stop
+@stop	
