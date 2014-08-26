@@ -37,7 +37,7 @@ class UserControllerTest extends TestCase{
 		$this->assertResponseOk();	//Asserting that the response is 200
 	}
 
-	//To test for store() method for failing to store
+/*	//To test for store() method for failing to store
 	public function testStoreFails(){
 		
 		$this->mock->shouldReceive('create')
@@ -64,6 +64,23 @@ class UserControllerTest extends TestCase{
 	    $this->call('POST', 'users');
 	    $this->assertRedirectedToRoute('users.index');
 	    $this->assertSessionHas('flash');
+	}*/
+
+	public function testShow(){
+
+		$this->mock->shouldReceive('find')
+					->once()
+					->with(42);
+
+		$this->call('GET', 'users/42');
+
+		$this->assertResponseOk();
+
+	}
+
+	public function testEdit(){
+		$this->call('GET', 'users/1/edit');
+		$this->assertResponseOk();
 	}	
 
 }
