@@ -80,7 +80,7 @@ Route::get('/userSample', function(){
 
 });
 
-/*==== Authentication routes======*/
+/*==== AUHTENTICATION ==================*/
 
 Route::get('login', array(
 	'uses'	=> 'SessionController@create',
@@ -97,5 +97,24 @@ Route::get('logout', array(
 	'as'	=> 'session.destroy'
 	));
 
-/*=========================================*/
+/*===========PASSWORD REMINDERS==============*/
 
+Route::get('password/reset', array(
+	'uses'	=> 'PasswordController@remind',
+	'as'	=> 'password.remind'
+	));
+
+Route::post('password/reset', array(
+	'uses'	=> 'PasswordController@request',
+	'as'	=> 'password.request'		
+	));
+
+Route::get('password/reset/{token}', array(
+	'uses'	=> 'PasswordController@reset',
+	'as'	=> 'password.reset'
+	));
+
+Route::post('password/reset/{token}', array(
+	'uses'	=> 'PasswordController@update',
+	'as'	=> 'password.update'
+	));
