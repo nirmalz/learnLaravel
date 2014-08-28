@@ -1,6 +1,7 @@
 /bootstrap/compiled.php
 /public/packages
 /vendor
+/node_modules
 /visualPHPUnit
 composer.phar
 composer.lock
