@@ -1,6 +1,7 @@
 /bootstrap/compiled.php
 /public/packages
 /vendor
+/fireshell
 /node_modules
 /visualPHPUnit
 composer.phar

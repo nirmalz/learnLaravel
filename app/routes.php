@@ -118,3 +118,9 @@ Route::post('password/reset/{token}', array(
 	'uses'	=> 'PasswordController@update',
 	'as'	=> 'password.update'
 	));
+
+
+/*=================ENVIRONMENT===================*/
+Route::get('environment', function(){
+	return App::environment();
+});
