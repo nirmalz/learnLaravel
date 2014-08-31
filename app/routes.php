@@ -43,6 +43,8 @@ Route::get('/test', function(){
 
 Route::resource('users', 'UserController');
 
+//================== REGISTRATION =======================
+
 // Get request to register member [display form]
 Route::get('register', array(
 	'uses'	=> 'RegisterController@index',
@@ -55,6 +57,8 @@ Route::post('register', array(
 	'as'	=> 'register.store'	
 	));
 
+
+//=========================================================
 
 
 
