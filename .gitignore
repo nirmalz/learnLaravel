@@ -1,3 +1,4 @@
+/app/assets/bower
 /bootstrap/compiled.php
 /public/packages
 /vendor
@@ -13,3 +14,4 @@ Thumbs.db
 /*.tags
 /ctags.exe
 /.tags_sorted_by_file
+/.sass-cache/dad9f0f8ec24420b6d649da51be4341f22092a72
