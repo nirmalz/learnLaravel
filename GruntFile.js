@@ -26,14 +26,14 @@ module.exports = function(grunt) {
 		 * Set project object
 		 */
 		project: {
-		  app: 'app',
-		  assets: '<%= project.app %>/assets',
-		  src: '<%= project.assets %>/src',
+		  app: 'app',								// app/
+		  assets: '<%= project.app %>/assets',		// app/assets
+		  src: '<%= project.assets %>/src',			// app/assets/src
 		  css: [
-		    '<%= project.src %>/scss/style.scss'
+		    '<%= project.src %>/scss/style.scss'	// app/assets/src/scss/style.scss
 		  ],
 		  js: [
-		    '<%= project.src %>/js/*.js'
+		    '<%= project.src %>/js/*.js'			// app/assets/src/scss/js/*.js
 		  ]
 		},
 
@@ -43,11 +43,8 @@ module.exports = function(grunt) {
 		tag: {
 		  banner: '/*!\n' +
 		          ' * <%= pkg.name %>\n' +
-		          ' * <%= pkg.title %>\n' +
-		          ' * <%= pkg.url %>\n' +
 		          ' * @author <%= pkg.author %>\n' +
 		          ' * @version <%= pkg.version %>\n' +
-		          ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
 		          ' */\n'
 		},
 
